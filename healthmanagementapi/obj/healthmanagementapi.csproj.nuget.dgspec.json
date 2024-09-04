@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\InterviewProject\\DevApp\\healthwebapi\\healthmanagementapi\\healthmanagementapi\\healthmanagementapi.csproj": {}
+    "C:\\InterviewProject\\DevApp\\InterviewResults\\OgowHealthWebApi\\healthmanagementapi\\healthmanagementapi.csproj": {}
   },
   "projects": {
-    "C:\\InterviewProject\\DevApp\\healthwebapi\\healthmanagementapi\\healthmanagementapi\\healthmanagementapi.csproj": {
+    "C:\\InterviewProject\\DevApp\\InterviewResults\\OgowHealthWebApi\\healthmanagementapi\\healthmanagementapi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\InterviewProject\\DevApp\\healthwebapi\\healthmanagementapi\\healthmanagementapi\\healthmanagementapi.csproj",
+        "projectUniqueName": "C:\\InterviewProject\\DevApp\\InterviewResults\\OgowHealthWebApi\\healthmanagementapi\\healthmanagementapi.csproj",
         "projectName": "healthmanagementapi",
-        "projectPath": "C:\\InterviewProject\\DevApp\\healthwebapi\\healthmanagementapi\\healthmanagementapi\\healthmanagementapi.csproj",
+        "projectPath": "C:\\InterviewProject\\DevApp\\InterviewResults\\OgowHealthWebApi\\healthmanagementapi\\healthmanagementapi.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\InterviewProject\\DevApp\\healthwebapi\\healthmanagementapi\\healthmanagementapi\\obj\\",
+        "outputPath": "C:\\InterviewProject\\DevApp\\InterviewResults\\OgowHealthWebApi\\healthmanagementapi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
