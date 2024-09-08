@@ -4,7 +4,7 @@
 The Health Web API provides endpoints for managing health facilities, health workers, and patients. It supports CRUD operations and offline synchronization with a central cloud database when connectivity is available.
 
 ## Base URL
-https://healthmanagementapi.azurewebsites.net/
+https://ogohmsapi.azurewebsites.net/
 
 
 ## Authentication
