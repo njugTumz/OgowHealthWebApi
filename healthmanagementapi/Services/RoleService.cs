@@ -13,7 +13,7 @@ namespace healthmanagementapi.Services
         Task<IdentityResult> CreateRoleAsync(Role role);
         Task<IdentityResult> UpdateRoleAsync(Role facility);
         Task<IdentityResult> DeleteRoleAsync(int id);
-        Task<IdentityResult> AssignRoleToUserAsync(int userId, int roleId);
+        Task<IdentityResult> AssignRoleToUserAsync(string userId, string roleId);
     }
 
     public class RoleService:IRoleService
@@ -31,10 +31,10 @@ namespace healthmanagementapi.Services
             _context = context;
         }
 
-        public async Task<IdentityResult> AssignRoleToUserAsync(int userId, int roleId)
+        public async Task<IdentityResult> AssignRoleToUserAsync(string userId, string roleId)
         {
-            var user = await _userManager.FindByIdAsync(userId.ToString());
-            var role = await _roleManager.FindByIdAsync(roleId.ToString());
+            var user = await _userManager.FindByIdAsync(userId);
+            var role = await _roleManager.FindByIdAsync(roleId);
 
             if (user == null || role == null)
                 return IdentityResult.Failed(new IdentityError { Description = "User or Role not found" });

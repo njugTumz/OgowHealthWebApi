@@ -14,7 +14,7 @@ namespace healthmanagementapi.Services
         Task<string> LoginUserAsync(string email, string password);
         Task<IdentityResult> ChangePasswordAsync(string email, string currentPassword, string newPassword);
         Task<IdentityResult> ResetPasswordAsync(string email, string token, string newPassword);
-        string GenerateJwtToken(User user);
+        Task<string> GenerateJwtToken(User user);
     }
 
     public class UserManagementService : IUserManagamentService
@@ -41,17 +41,29 @@ namespace healthmanagementapi.Services
             return await _userManager.ChangePasswordAsync(user, currentPassword, newPassword);
         }
 
-        public string GenerateJwtToken(User user)
+        public async Task<string> GenerateJwtToken(User user)
         {
-            var claims = new[]
-             {
+            // Basic claims (you can include more claims as needed)
+            var claims = new List<Claim>
+            {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 
+            // Get user roles
+            var roles = await _userManager.GetRolesAsync(user);
+
+            // Add each role as a claim
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim("Role", role));
+            }
+
+            // Generate signing credentials
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
+            // Create the token
             var token = new JwtSecurityToken(
                 issuer: _configuration["Jwt:Issuer"],
                 audience: _configuration["Jwt:Audience"],
@@ -62,6 +74,7 @@ namespace healthmanagementapi.Services
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
+
         public async Task<string> LoginUserAsync(string email, string password)
         {
             var result = await _signInManager.PasswordSignInAsync(email, password, false, false);
@@ -69,7 +82,7 @@ namespace healthmanagementapi.Services
             if (result.Succeeded)
             {
                 var user = await _userManager.FindByEmailAsync(email);
-                return GenerateJwtToken(user);
+                return await GenerateJwtToken(user);
             }
 
             return null;

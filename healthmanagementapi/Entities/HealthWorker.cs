@@ -1,7 +1,11 @@
-﻿namespace healthmanagementapi.Entities
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace healthmanagementapi.Entities
 {
-    public class HealthWorker:BaseEntityCommon
+    public class HealthWorker
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Designation { get; set; }
         public string Email { get; set; }

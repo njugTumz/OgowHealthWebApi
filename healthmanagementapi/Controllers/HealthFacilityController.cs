@@ -19,7 +19,7 @@ namespace healthmanagementapi.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(_service.GetAllFacilitiesAsync());
+            return Ok(await _service.GetAllFacilitiesAsync());
         }
 
         [HttpGet("{id}")]

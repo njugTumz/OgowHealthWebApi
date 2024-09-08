@@ -59,7 +59,9 @@ builder.Services.AddAuthentication(options =>
 // Add services to the container.
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IHealthFacilityService, HealthFacilityService>();
+builder.Services.AddScoped<IHealthWorkerService, HealthWorkerService>();
 builder.Services.AddScoped<IUserManagamentService, UserManagementService>();
+builder.Services.AddScoped<IPatientService, PatientService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 
 builder.Services.AddControllers().AddJsonOptions(options =>
@@ -78,7 +80,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowSpecificOrigin",
         builder =>
         {
-            builder.WithOrigins("https://nice-grass-090a47503.5.azurestaticapps.net")
+            builder.WithOrigins("https://jolly-stone-0bb101303.5.azurestaticapps.net/")
                    .AllowAnyHeader()
                    .AllowAnyMethod();
         });
@@ -96,6 +98,8 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 }
 
 app.UseCors("AllowSpecificOrigin");
+
+//app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 
 app.UseHttpsRedirection();

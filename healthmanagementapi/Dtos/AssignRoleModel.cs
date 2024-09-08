@@ -1,9 +1,12 @@
-﻿namespace healthmanagementapi.Dtos
+﻿using healthmanagementapi.Entities;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace healthmanagementapi.Dtos
 {
     public class AssignRoleModel
     {
-        public int UserId { get; set; }
-        public int RoleId { get; set; }
+        public string UserId { get; set; }
+        public string RoleId { get; set; }
     }
 
 }

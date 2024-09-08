@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="healthmanagementapi" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\InterviewProject\\DevApp\\healthwebapi\\healthmanagementapi\\healthmanagementapi\\obj\\Release\\net8\.0\\PubTmp\\Out\\$" />
+  <parameter name="IIS Web Application Name" description="" value="ogohmsapi" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\OgoInterview\\OgowHealthWebApi\\healthmanagementapi\\obj\\Release\\net8\.0\\PubTmp\\Out\\$" />
   </parameter>
 </parameters>
